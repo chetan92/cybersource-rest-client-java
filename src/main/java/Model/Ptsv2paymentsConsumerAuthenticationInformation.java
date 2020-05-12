@@ -19,7 +19,7 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.google.gson.stream.JsonWriter; 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -50,6 +50,9 @@ public class Ptsv2paymentsConsumerAuthenticationInformation {
   @SerializedName("ucafAuthenticationData")
   private String ucafAuthenticationData = null;
 
+  @SerializedName("ucafCollectionIndicator")
+  private String ucafCollectionIndicator = null;
+  
   @SerializedName("strongAuthentication")
   private Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication strongAuthentication = null;
 
@@ -294,6 +297,11 @@ public class Ptsv2paymentsConsumerAuthenticationInformation {
     this.ucafAuthenticationData = ucafAuthenticationData;
     return this;
   }
+  
+   public Ptsv2paymentsConsumerAuthenticationInformation ucafCollectionIndicator(String ucafCollectionIndicator) {
+    this.ucafCollectionIndicator = ucafCollectionIndicator;
+    return this;
+  }
 
    /**
    * Universal cardholder authentication field (UCAF) data.  For details, see &#x60;ucaf_authentication_data&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
@@ -303,10 +311,25 @@ public class Ptsv2paymentsConsumerAuthenticationInformation {
   public String getUcafAuthenticationData() {
     return ucafAuthenticationData;
   }
-
+  
   public void setUcafAuthenticationData(String ucafAuthenticationData) {
     this.ucafAuthenticationData = ucafAuthenticationData;
   }
+  
+  /**
+   * Universal cardholder Collection Indicator (UCAF).  For details, see &#x60;ucafCollectionIndicator&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
+   * @return ucafAuthenticationData
+  **/
+  @ApiModelProperty(value = "Universal cardholder Collection Indicator (UCAF).  For details, see `ucafCollectionIndicator` request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) ")
+  public String getUcafCollectionIndicator() {
+    return ucafCollectionIndicator;
+  }
+
+  
+  public void setUcafCollectionIndicator(String ucafCollectionIndicator) {
+    this.ucafCollectionIndicator = ucafCollectionIndicator;
+  }
+  
 
   public Ptsv2paymentsConsumerAuthenticationInformation strongAuthentication(Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication strongAuthentication) {
     this.strongAuthentication = strongAuthentication;
@@ -1116,6 +1139,7 @@ public class Ptsv2paymentsConsumerAuthenticationInformation {
         Objects.equals(this.paresStatus, ptsv2paymentsConsumerAuthenticationInformation.paresStatus) &&
         Objects.equals(this.veresEnrolled, ptsv2paymentsConsumerAuthenticationInformation.veresEnrolled) &&
         Objects.equals(this.xid, ptsv2paymentsConsumerAuthenticationInformation.xid) &&
+        Objects.equals(this.ucafCollectionIndicator, ptsv2paymentsConsumerAuthenticationInformation.ucafCollectionIndicator) &&
         Objects.equals(this.ucafAuthenticationData, ptsv2paymentsConsumerAuthenticationInformation.ucafAuthenticationData) &&
         Objects.equals(this.strongAuthentication, ptsv2paymentsConsumerAuthenticationInformation.strongAuthentication) &&
         Objects.equals(this.directoryServerTransactionId, ptsv2paymentsConsumerAuthenticationInformation.directoryServerTransactionId) &&
@@ -1165,7 +1189,7 @@ public class Ptsv2paymentsConsumerAuthenticationInformation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cavv, cavvAlgorithm, eciRaw, paresStatus, veresEnrolled, xid, ucafAuthenticationData, strongAuthentication, directoryServerTransactionId, paSpecificationVersion, authenticationType, acsWindowSize, alternateAuthenticationData, alternateAuthenticationDate, alternateAuthenticationMethod, authenticationDate, authenticationTransactionId, challengeCancelCode, challengeCode, challengeStatus, customerCardAlias, decoupledAuthenticationIndicator, decoupledAuthenticationMaxTime, defaultCard, deviceChannel, installmentTotalCount, merchantFraudRate, marketingOptIn, marketingSource, mcc, merchantScore, messageCategory, npaCode, overridePaymentMethod, overrideCountryCode, priorAuthenticationData, priorAuthenticationMethod, priorAuthenticationReferenceId, priorAuthenticationTime, productCode, requestorId, requestorInitiatedAuthenticationIndicator, requestorName, referenceId, sdkMaxTimeout, secureCorporatePaymentIndicator, transactionMode, whiteListStatus, effectiveAuthenticationType, signedParesStatusReason, signedPares);
+    return Objects.hash(cavv, cavvAlgorithm, eciRaw, paresStatus, veresEnrolled, xid, ucafAuthenticationData,ucafCollectionIndicator, strongAuthentication, directoryServerTransactionId, paSpecificationVersion, authenticationType, acsWindowSize, alternateAuthenticationData, alternateAuthenticationDate, alternateAuthenticationMethod, authenticationDate, authenticationTransactionId, challengeCancelCode, challengeCode, challengeStatus, customerCardAlias, decoupledAuthenticationIndicator, decoupledAuthenticationMaxTime, defaultCard, deviceChannel, installmentTotalCount, merchantFraudRate, marketingOptIn, marketingSource, mcc, merchantScore, messageCategory, npaCode, overridePaymentMethod, overrideCountryCode, priorAuthenticationData, priorAuthenticationMethod, priorAuthenticationReferenceId, priorAuthenticationTime, productCode, requestorId, requestorInitiatedAuthenticationIndicator, requestorName, referenceId, sdkMaxTimeout, secureCorporatePaymentIndicator, transactionMode, whiteListStatus, effectiveAuthenticationType, signedParesStatusReason, signedPares);
   }
 
 
@@ -1180,6 +1204,7 @@ public class Ptsv2paymentsConsumerAuthenticationInformation {
     sb.append("    paresStatus: ").append(toIndentedString(paresStatus)).append("\n");
     sb.append("    veresEnrolled: ").append(toIndentedString(veresEnrolled)).append("\n");
     sb.append("    xid: ").append(toIndentedString(xid)).append("\n");
+    sb.append("    ucafCollectionIndicator: ").append(toIndentedString(ucafCollectionIndicator)).append("\n");
     sb.append("    ucafAuthenticationData: ").append(toIndentedString(ucafAuthenticationData)).append("\n");
     sb.append("    strongAuthentication: ").append(toIndentedString(strongAuthentication)).append("\n");
     sb.append("    directoryServerTransactionId: ").append(toIndentedString(directoryServerTransactionId)).append("\n");
